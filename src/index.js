@@ -2,7 +2,7 @@
 
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import { PixabayAPI } from './pixabay-api';
+import { PixabayAPI } from './js/pixabay-api';
 import galleryCardsTemplate from '../templates/gallery-card.hbs';
 import Notiflix from 'notiflix';
 
