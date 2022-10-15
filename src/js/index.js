@@ -1,5 +1,3 @@
-'use strict';
-
 import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -37,17 +35,28 @@ searchFormEl.addEventListener('submit', async event => {
     }
 
     if (data.hits.total_pages === 1) {
-      galleryListEl.insertAdjacentHTML('beforeend', galleryCardsTemplate(data.hits));
+      galleryListEl.insertAdjacentHTML(
+        'beforeend',
+        galleryCardsTemplate(data.hits)
+      );
       loadMoreBtnEl.classList.add('is-hidden');
       return;
     }
 
-    galleryListEl.insertAdjacentHTML('beforeend', galleryCardsTemplate(data.hits));
-    let lightbox = new SimpleLightbox('.gallery a', { captionDelay: 250 }).refresh();
+    galleryListEl.insertAdjacentHTML(
+      'beforeend',
+      galleryCardsTemplate(data.hits)
+    );
+    let lightbox = new SimpleLightbox('.gallery a', {
+      captionDelay: 250,
+    }).refresh();
     alertImagesFound(data.totalHits);
     lightbox;
 
-    galleryListEl.insertAdjacentHTML('beforeend', galleryCardsTemplate(data.hits));
+    galleryListEl.insertAdjacentHTML(
+      'beforeend',
+      galleryCardsTemplate(data.hits)
+    );
     loadMoreBtnEl.classList.remove('is-hidden');
   } catch (err) {
     console.log(err);
@@ -66,13 +75,19 @@ loadMoreBtnEl.addEventListener('click', async event => {
     }
 
     if (data.totalHits <= pixabayApi.page * pixabayApi.per_page) {
-      galleryListEl.insertAdjacentHTML('beforeend', galleryCardsTemplate(data.hits));
+      galleryListEl.insertAdjacentHTML(
+        'beforeend',
+        galleryCardsTemplate(data.hits)
+      );
       loadMoreBtnEl.classList.add('is-hidden');
       alertEndOfSearch();
       return;
     }
 
-    galleryListEl.insertAdjacentHTML('beforeend', galleryCardsTemplate(data.hits));
+    galleryListEl.insertAdjacentHTML(
+      'beforeend',
+      galleryCardsTemplate(data.hits)
+    );
     loadMoreBtnEl.classList.remove('is-hidden');
 
     const { height: cardHeight } = document
@@ -90,7 +105,7 @@ loadMoreBtnEl.addEventListener('click', async event => {
 
 function alertNoImagesFound() {
   Notiflix.Notify.failure(
-    'Sorry, there are no images matching your search query. Please try again.',
+    'Sorry, there are no images matching your search query. Please try again.'
   );
 }
 
@@ -99,5 +114,7 @@ function alertImagesFound(total) {
 }
 
 function alertEndOfSearch() {
-  Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
+  Notiflix.Notify.failure(
+    "We're sorry, but you've reached the end of search results."
+  );
 }
