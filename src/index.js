@@ -4,6 +4,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { createMarkup, resetGallery } from './js/createMarkup.js';
 import ImageFetchApi from './js/fetch_image.js';
+import OnlyScroll from 'only-scrollbar';
 
 let lightbox = new SimpleLightbox('.photo-card a', {
   captions: true,
