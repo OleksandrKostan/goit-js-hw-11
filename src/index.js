@@ -3,7 +3,7 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { PixabayAPI } from './js/pixabay-api';
-import galleryCardsTemplate from '../templates/gallery-card.hbs';
+import galleryCardsTemplate from './templates/gallery-card.hbs';
 import Notiflix from 'notiflix';
 
 const searchFormEl = document.querySelector('.js-search-form');
